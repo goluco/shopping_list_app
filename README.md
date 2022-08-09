@@ -4,8 +4,8 @@
 
 ## Tech Stack
 
-Rails 7.0.3.1
-Ruby 3.0.0
+- Rails 7.0.3.1
+- Ruby 3.0.0
 
 ## Descrição inicial (em desenvolvimento)
 
