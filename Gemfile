@@ -28,6 +28,7 @@ group :development, :test do
   gem 'selenium-webdriver'
   gem 'webdrivers'
   gem "shoulda-matchers"
+  gem 'bundler-audit'
 end
 
 group :development do

@@ -1,24 +1,13 @@
-# README
+# Shopping List App
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Aplicativo para criar lista de compras
 
-Things you may want to cover:
+## Tech Stack
 
-* Ruby version
+Rails 7.0.3.1
+Ruby 3.0.0
 
-* System dependencies
+## Descrição inicial (em desenvolvimento)
 
-* Configuration
+Aplicação designada à montagem automatizada de listas de compras a partir de inputs do usuário tais quais a quantidade de dias, pessoas e quais receitas serão feitas naquele período.
 
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
