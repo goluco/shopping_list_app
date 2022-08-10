@@ -1,3 +1,7 @@
 <header>
   <h1>APP de lista de compras</h1>
 </header>
+
+<% if user_signed_in? %>
+  <p>Bem vindo, <%= current_user.name %></p>
+<% end %>
