@@ -2,6 +2,8 @@
 
 ## Aplicativo para criar lista de compras
 
+O planejamento e evolução do projeto podem ser acompanhados [neste link](https://github.com/users/goluco/projects/2).
+
 ## Tech Stack
 
 - Rails 7.0.3.1

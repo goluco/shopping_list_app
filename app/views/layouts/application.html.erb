@@ -8,8 +8,20 @@
 
     <%= stylesheet_link_tag "application" %>
   </head>
+  <header>
+    <% if user_signed_in? %>
+      <%= current_user.email %> |
+      <%= button_to 'Sair', destroy_user_session_path, method: :delete %>
+    <% end %>
+  </header>
 
   <body>
     <%= yield %>
+    <p class="notice"><%= notice %></p>
+    <p class="alert"><%= alert %></p>
+    <% unless user_signed_in? %>
+      <p><%= link_to 'Fazer login', new_user_session_path %></p>
+      <p><%= link_to 'Fazer cadastro', new_user_registration_path %></p>
+    <% end %>
   </body>
 </html>
