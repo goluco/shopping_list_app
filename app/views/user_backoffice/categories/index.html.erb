@@ -1,0 +1,14 @@
+<h3>Categorias</h3>
+
+<% unless @categories.empty? %>
+  <ul>
+    <% @categories.each do |category| %>
+      <li><%= category.name %></li>
+    <% end %>
+  </ul>
+<% else %>
+  <p>Ainda não há categorias criadas</p>
+<% end %>
+
+<p><%= link_to 'Adicionar categoria', new_user_backoffice_category_path %></p>
+

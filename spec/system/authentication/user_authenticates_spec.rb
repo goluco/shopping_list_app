@@ -16,4 +16,18 @@ describe 'Usuário visita aplicação' do
     expect(page).not_to have_link('Fazer login')
     expect(page).not_to have_link('Fazer cadastro')
   end
+
+  it 'e faz logout' do
+    user = create(:user)
+    login_as(user)
+
+    visit root_path
+    click_on 'Sair'
+
+    expect(page).to have_link('Fazer login')
+    expect(page).to have_link('Fazer cadastro')
+    expect(page).not_to have_content(user.email)
+    expect(page).not_to have_content(user.name)
+    expect(page).not_to have_button('Sair')
+  end
 end
