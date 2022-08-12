@@ -38,7 +38,7 @@ class UserBackoffice::CategoriesController < UserBackofficeController
   private
 
   def category_params
-    category_params = params.require(:category).permit(:name)
+    params.require(:category).permit(:name)
   end
 
   def set_category

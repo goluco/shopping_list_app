@@ -1,0 +1,17 @@
+<h2>Adicionar novo produto</h2>
+
+<%= form_with(model: [:user_backoffice, @product]) do |form| %>
+  <div>
+    <%= form.label :name %>
+    <%= form.text_field :name %>
+  </div>
+
+  <div>
+    <%= form.label :category_id %>
+    <%= form.collection_select :category_id, Category.order(:name), :id, :name %>
+  </div>
+
+  <div>
+    <%= form.submit 'Salvar' %>
+  </div>
+<% end %>
