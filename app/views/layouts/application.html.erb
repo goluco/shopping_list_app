@@ -11,6 +11,7 @@
   <header>
     <% if user_signed_in? %>
       <%= current_user.email %> |
+      <%= link_to 'Categorias', user_backoffice_categories_path %> |
       <%= button_to 'Sair', destroy_user_session_path, method: :delete %>
     <% end %>
   </header>
