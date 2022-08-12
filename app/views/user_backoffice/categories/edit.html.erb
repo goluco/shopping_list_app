@@ -1,0 +1,9 @@
+<h2>Editar categoria</h2>
+
+<% if @category.errors.any? %>
+  <% @category.errors.full_messages.each do |error| %>
+    <p><%= error %></p>
+  <% end %>
+<% end %>
+
+<%= render 'form' %>

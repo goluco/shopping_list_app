@@ -3,7 +3,7 @@
 <% unless @categories.empty? %>
   <ul>
     <% @categories.each do |category| %>
-      <li><%= category.name %></li>
+      <li><%= category.name %> | <%= link_to 'Editar', edit_user_backoffice_category_path(category.id) %>
     <% end %>
   </ul>
 <% else %>
@@ -11,4 +11,5 @@
 <% end %>
 
 <p><%= link_to 'Adicionar categoria', new_user_backoffice_category_path %></p>
+
 

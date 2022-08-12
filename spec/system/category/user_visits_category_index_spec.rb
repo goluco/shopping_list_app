@@ -21,7 +21,7 @@ describe 'Usuário visita página de categorias' do
 
     login_as(user)
     visit user_backoffice_categories_path
-    
+
     expect(page).to have_content('Ainda não há categorias criadas')
   end
 end
