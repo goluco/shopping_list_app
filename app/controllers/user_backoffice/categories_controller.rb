@@ -1,5 +1,5 @@
 class UserBackoffice::CategoriesController < UserBackofficeController
-  before_action :set_category, only: %i[edit update destroy]
+  before_action :set_category, only: %i[edit update]
 
   def index
     @categories = Category.all
@@ -28,11 +28,6 @@ class UserBackoffice::CategoriesController < UserBackofficeController
       flash.now[:alert] = 'Não foi possível editar a categoria. Verifique os erros abaixo'
       render 'edit'
     end
-  end
-
-  def destroy
-    @category.destroy
-    redirect_to user_backoffice_categories_path, notice: 'Categoria deletada com sucesso.'
   end
 
   private
