@@ -1,5 +1,5 @@
 class UserBackoffice::CategoriesController < UserBackofficeController
-  before_action :set_category, only: %i[edit update destroy]
+  before_action :set_category, only: %i[edit update]
 
   def index
     @categories = Category.all
@@ -30,15 +30,10 @@ class UserBackoffice::CategoriesController < UserBackofficeController
     end
   end
 
-  def destroy
-    @category.destroy
-    redirect_to user_backoffice_categories_path, notice: 'Categoria deletada com sucesso.'
-  end
-
   private
 
   def category_params
-    category_params = params.require(:category).permit(:name)
+    params.require(:category).permit(:name)
   end
 
   def set_category

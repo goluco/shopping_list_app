@@ -1,0 +1,9 @@
+<h2>Editar produto</h2>
+
+<% if @product.errors.any? %>
+  <% @product.errors.full_messages.each do |error| %>
+    <%= error %>
+  <% end %>
+<% end %>
+
+<%= render 'form' %>

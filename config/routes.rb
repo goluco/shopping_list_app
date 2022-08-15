@@ -3,5 +3,6 @@ Rails.application.routes.draw do
   root to: 'home#index'
   namespace :user_backoffice do
     resources :categories, only: %i[index new create edit update]
+    resources :products, only: %i[index new create edit update]
   end
 end

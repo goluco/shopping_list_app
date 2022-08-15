@@ -1,0 +1,22 @@
+<h3>Produtos</h3>
+
+<% if @products.empty? %>
+  <p>Não existem produtos cadastrados</p>
+<% else %>
+  <% @categories.each do |category| %>
+    <h4><%= category.name %></h4>
+    <ul class=<%= category.name.gsub(' ', '') %>>
+      <% @products.each do |product| %>
+        <% if product.category.name == category.name %>
+          <li class=<%= product.name.gsub(' ', '') %>><%= product.name %> | <%= link_to 'Editar', edit_user_backoffice_product_path(product.id) %></li>
+        <% end %>
+      <% end %>
+    </ul>
+  <% end %>
+<% end %>
+
+<% @products.each do |product| %>
+  <%= product.name %>
+<% end %> <br/>
+
+<%= link_to 'Criar novo produto', new_user_backoffice_product_path %>
