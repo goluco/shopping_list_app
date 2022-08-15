@@ -12,8 +12,8 @@ describe 'Usuário visita página de categorias' do
     click_on 'Categorias'
 
     expect(page).to have_content(category.name)
-    expect(page).to have_content(category.name)
-    expect(page).to have_content(category.name)
+    expect(page).to have_content(category_2.name)
+    expect(page).to have_content(category_3.name)
   end
 
   it 'e não há categoria criada' do
