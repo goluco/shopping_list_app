@@ -1,6 +1,7 @@
 class UserBackoffice::ProductsController < UserBackofficeController
   def index
     @products = Product.all
+    @categories = Category.all
   end
 
   def new
