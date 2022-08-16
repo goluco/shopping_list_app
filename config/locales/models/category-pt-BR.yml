@@ -7,3 +7,4 @@ pt-BR:
     attributes:
       category:
         name: Nome da categoria
+        user: Usuário

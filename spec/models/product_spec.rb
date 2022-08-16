@@ -8,17 +8,11 @@ RSpec.describe Product, type: :model do
       end
 
       it 'inválido quando categoria não for informada' do
-        expect(described_class.new).to validate_presence_of(:category_id)
+        expect(described_class.new).to validate_presence_of(:category)
       end
 
-      context 'uniqueness' do
-        it 'inválido quando o nome já está cadastrado' do
-          create(:product)
-
-          product = described_class.new(name: 'Tomate')
-
-          expect(product.valid?).to be false
-        end
+      it 'inválido quando o usuário não for informado' do
+        expect(described_class.new).to validate_presence_of(:user)
       end
     end
   end
