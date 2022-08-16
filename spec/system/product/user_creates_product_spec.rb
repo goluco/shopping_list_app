@@ -3,7 +3,7 @@ require 'rails_helper'
 describe 'Usuário cria produto' do
   it 'com sucesso' do
     user = create(:user)
-    category = create(:category)
+    category = create(:category, user: user)
 
     login_as(user)
     visit root_path
@@ -19,7 +19,7 @@ describe 'Usuário cria produto' do
 
   it 'com dados incompletos' do
     user = create(:user)
-    category = create(:category)
+    category = create(:category, user: user)
 
     login_as(user)
     visit new_user_backoffice_product_path

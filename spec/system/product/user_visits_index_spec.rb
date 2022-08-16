@@ -3,8 +3,8 @@ require 'rails_helper'
 describe 'Usuário visita página de produtos' do
   it 'e vê os produtos cadastrados' do
     user = create(:user)
-    category = create(:category)
-    other_category = create(:category, name: 'Carnes e Congelados')
+    category = create(:category, user: user)
+    other_category = create(:category, name: 'Carnes e Congelados', user: user)
     create(:product, category: category)
     create(:product, name: 'Alcatra', category: other_category)
 

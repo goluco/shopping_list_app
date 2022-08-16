@@ -3,7 +3,7 @@ require 'rails_helper'
 describe 'Usuário edita categoria existente' do
   it 'com sucesso' do
     user = create(:user)
-    create(:category)
+    create(:category, user: user)
 
     login_as(user)
     visit user_backoffice_categories_path
@@ -18,7 +18,7 @@ describe 'Usuário edita categoria existente' do
 
   it 'com dados incompletos' do
     user = create(:user)
-    create(:category)
+    create(:category, user: user)
 
     login_as(user)
     visit user_backoffice_categories_path
