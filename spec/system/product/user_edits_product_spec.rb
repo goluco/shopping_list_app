@@ -4,7 +4,7 @@ describe 'Usuário edita produto' do
   it 'com sucesso' do
     user = create(:user)
     category = create(:category, user: user)
-    product = create(:product, category: category)
+    product = create(:product, category: category, user: user)
 
     login_as(user)
     visit user_backoffice_products_path
@@ -26,7 +26,7 @@ describe 'Usuário edita produto' do
   it 'com informações incompletas' do
     user = create(:user)
     category = create(:category, user: user)
-    product = create(:product, category: category)
+    product = create(:product, category: category, user: user)
 
     login_as(user)
     visit edit_user_backoffice_product_path(product.id)
