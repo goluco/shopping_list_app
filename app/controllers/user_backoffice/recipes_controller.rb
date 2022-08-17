@@ -20,7 +20,9 @@ class UserBackoffice::RecipesController < UserBackofficeController
     end
   end
 
-  def show; end
+  def show
+    @categories = Category.where(user: current_user)
+  end
 
   def edit; end
 
