@@ -12,7 +12,8 @@
     <% if user_signed_in? %>
       <%= current_user.email %> |
       <%= link_to 'Categorias', user_backoffice_categories_path %> |
-      <%= link_to 'Produtos', user_backoffice_products_path %>
+      <%= link_to 'Produtos', user_backoffice_products_path %> |
+      <%= link_to 'Receitas', user_backoffice_recipes_path %> 
       <%= button_to 'Sair', destroy_user_session_path, method: :delete %> 
     <% end %>
   </header>
