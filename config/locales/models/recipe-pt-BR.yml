@@ -1,0 +1,13 @@
+pt-BR:
+  activerecord:
+    models:
+      recipe: 
+        one: Receita
+        other: Receitas
+    attributes:
+      recipe:
+        name: Nome da receita
+        instructions: Instruções
+        people: Pessoas
+        user: Usuário
+        user_id: Usuário

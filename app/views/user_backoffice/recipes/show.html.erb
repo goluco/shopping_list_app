@@ -1,0 +1,23 @@
+<h4>Detalhes da receita</h4>
+<ul>
+  <li>Nome da receita: <%= @recipe.name %></li>
+  <li>Instruções: <%= @recipe.instructions %></li>
+  <li>Pessoas: <%= @recipe.people %></li>
+</ul>
+
+<%= link_to 'Adicionar produto à receita', new_user_backoffice_recipe_recipe_product_path(@recipe.id) %> <br />
+
+<% @categories.each do |category| %>
+  <h5><%= category.name %></h5>
+  <ul>
+    <% @recipe.recipe_products.each do |recipe_product| %>
+      <% if recipe_product.product.category == category %>
+        <li><%= recipe_product.quantity %> x <%= recipe_product.product.name %></li>
+      <% end %>
+    <% end %>
+  </ul>
+<% end %>
+
+<br />
+
+<%= link_to 'Editar', edit_user_backoffice_recipe_path %>

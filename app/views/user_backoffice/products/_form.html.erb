@@ -6,7 +6,7 @@
 
   <div>
     <%= form.label :category_id %>
-    <%= form.collection_select :category_id, Category.order(:name), :id, :name %>
+    <%= form.collection_select :category_id, Category.where(user: current_user).order(:name), :id, :name %>
   </div>
 
   <div>

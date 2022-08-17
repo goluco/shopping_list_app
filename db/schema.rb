@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_08_16_150626) do
+ActiveRecord::Schema[7.0].define(version: 2022_08_17_205845) do
   create_table "categories", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", null: false
@@ -29,6 +29,26 @@ ActiveRecord::Schema[7.0].define(version: 2022_08_16_150626) do
     t.index ["user_id"], name: "index_products_on_user_id"
   end
 
+  create_table "recipe_products", force: :cascade do |t|
+    t.integer "product_id", null: false
+    t.integer "quantity"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "recipe_id", null: false
+    t.index ["product_id"], name: "index_recipe_products_on_product_id"
+    t.index ["recipe_id"], name: "index_recipe_products_on_recipe_id"
+  end
+
+  create_table "recipes", force: :cascade do |t|
+    t.string "name"
+    t.string "instructions"
+    t.integer "people"
+    t.integer "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_recipes_on_user_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -45,4 +65,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_08_16_150626) do
   add_foreign_key "categories", "users"
   add_foreign_key "products", "categories"
   add_foreign_key "products", "users"
+  add_foreign_key "recipe_products", "products"
+  add_foreign_key "recipe_products", "recipes"
+  add_foreign_key "recipes", "users"
 end

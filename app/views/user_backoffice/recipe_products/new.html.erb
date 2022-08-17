@@ -1,0 +1,13 @@
+<h4>Novo produto para a receita: <%= @recipe.name %></h4>
+
+<%= form_with(model: [:user_backoffice, @recipe, @recipe_product] ) do |f| %>
+  <div>
+    <%= f.label :product_id, 'Produto' %>
+    <%= f.collection_select :product_id, @products, :id, :name %>
+  </div>
+  <div>
+    <%= f.label :quantity, 'Quantidade' %>
+    <%= f.number_field :quantity %>
+  </div>
+  <%= f.submit 'Salvar' %>
+<% end %>

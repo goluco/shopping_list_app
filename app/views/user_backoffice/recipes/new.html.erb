@@ -1,0 +1,9 @@
+<h2>Adicionar nova receita</h2>
+
+<% if @recipe.errors.any? %>
+  <% @recipe.errors.full_messages.each do |error| %>
+    <%= error %>
+  <% end %>
+<% end %>
+
+<%= render 'form' %>

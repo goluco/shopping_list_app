@@ -4,5 +4,8 @@ Rails.application.routes.draw do
   namespace :user_backoffice do
     resources :categories, only: %i[index new create edit update]
     resources :products, only: %i[index new create edit update]
+    resources :recipes, only: %i[index new create edit update show] do
+      resources :recipe_products, only: %i[new create]
+    end
   end
 end

@@ -1,0 +1,13 @@
+<h3>Receitas</h3>
+
+<% if @recipes.empty? %>
+  <p>Ainda não existem receitas cadastradas</p>
+<% else %>
+  <ul>
+    <% @recipes.each do |recipe| %>
+      <li><%= link_to recipe.name, user_backoffice_recipe_path(recipe.id) %></li>
+    <% end %>
+  </ul>
+<% end %>
+
+<%= link_to 'Adicionar nova receita', new_user_backoffice_recipe_path %>
