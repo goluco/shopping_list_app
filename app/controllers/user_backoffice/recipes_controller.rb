@@ -1,4 +1,6 @@
 class UserBackoffice::RecipesController < UserBackofficeController
+  before_action :set_recipe, only: %i[edit update show]
+
   def index
     @recipes = Recipe.where(user: current_user)
   end
@@ -18,7 +20,28 @@ class UserBackoffice::RecipesController < UserBackofficeController
     end
   end
 
+  def show; end
+
+  def edit; end
+
+  def update
+    if @recipe.update(update_recipe_params)
+      redirect_to user_backoffice_recipe_path(@recipe.id), notice: 'Receita atualizada com sucesso'
+    else
+      flash.now[:alert] = 'Não foi possível atualizar a receita. Verifique os erros abaixo'
+      render 'edit'
+    end
+  end
+
   private
+
+  def set_recipe
+    @recipe = Recipe.find(params[:id])
+  end
+
+  def update_recipe_params
+    params.require(:recipe).permit(:name, :instructions, :people)
+  end
 
   def create_recipe_params
     params.require(:recipe).permit(:name, :instructions, :people).merge(user_id: @user.id)

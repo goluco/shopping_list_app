@@ -19,4 +19,16 @@ describe 'Usuário cadastra nova receita' do
     expect(page).to have_content('Receita adicionada com sucesso')
     expect(page).to have_content('Mousse de Limão')
   end
+
+  it 'com informações incompletas' do
+    user = create(:user)
+
+    login_as(user)
+    visit new_user_backoffice_recipe_path
+    click_on 'Salvar'
+
+    expect(page).to have_content('Não foi possível adicionar a receita. Verifique os erros abaixo')
+    expect(page).to have_content('Nome da receita não pode ficar em branco')
+    expect(page).to have_content('Pessoas não pode ficar em branco')
+  end
 end
