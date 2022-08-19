@@ -7,5 +7,6 @@ Rails.application.routes.draw do
     resources :recipes, only: %i[index new create edit update show] do
       resources :recipe_products, only: %i[new create]
     end
+    resources :lists, only: %i[index new create edit update show]
   end
 end

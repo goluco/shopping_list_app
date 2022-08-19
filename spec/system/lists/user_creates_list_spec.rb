@@ -7,6 +7,7 @@ describe 'Usuário cria nova lista' do
     login_as(user)
     visit root_path
     click_on 'Criar nova lista de compras'
+    fill_in 'Nome (não obrigatório)', with: 'Lista teste'
     fill_in 'Número de pessoas', with: 4
     click_on 'Salvar'
 
