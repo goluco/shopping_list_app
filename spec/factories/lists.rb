@@ -1,7 +1,7 @@
 FactoryBot.define do
   factory :list do
-    name { "MyString" }
-    people { 1 }
+    name { "Lista Genérica" }
+    people { 3 }
     user { nil }
   end
 end

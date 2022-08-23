@@ -1,6 +1,15 @@
 <h4>Lista de compra</h4>
 
 <ul>
-  <li><%= !@list.name.nil? @list.name : 'Sem nome' %></li>
+  <li><% if @list.name != nil %>
+        Sem nome
+      <% else %>
+        <%= @list.name %>
+      <% end %>
+  </li>
   <li><%= @list.people %></li>
 </ul>
+
+
+
+<%= link_to 'Adicionar receita', new_user_backoffice_list_list_recipe_path(@list.id) %>

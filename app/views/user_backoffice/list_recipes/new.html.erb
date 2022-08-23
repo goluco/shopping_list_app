@@ -1,0 +1,9 @@
+<h4>Adicionar nova receita para a lista criada em <%= I18n.l(@list.created_at) %> para <%= @list.people %> pessoas </h4>
+
+<%= form_with(model: [:user_backoffice, @list, @list_recipe] ) do |f| %>
+  <div>
+    <%= f.label :recipe_id, 'Receitas' %>
+    <%= f.collection_select :recipe_id, @recipes, :id, :name %>
+  </div>
+  <%= f.submit 'Salvar' %>
+<% end %>
