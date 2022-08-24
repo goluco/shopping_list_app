@@ -5,7 +5,7 @@ describe 'Usuário adiciona receitas à lista de compras' do
     user = create(:user)
     list = create(:list, user: user, people: 4)
     category = create(:category, user: user)
-    category2 = create(:category, name: 'Café/Massas', user: user)
+    category2 = create(:category, name: 'Café e Massas', user: user)
     category3 = create(:category, name: 'Temperos', user: user)
     product = create(:product, category: category, user: user)
     product2 = create(:product, name: 'Limão', category: category, user: user)
