@@ -35,4 +35,23 @@ describe 'Usuário edita receita' do
     expect(page).to have_content('Nome da receita não pode ficar em branco')
     expect(page).to have_content('Pessoas não pode ficar em branco')
   end
+
+  it 'e altera a quantidade de produtos na receita' do
+    user = create(:user)
+    recipe = create(:recipe, user: user)
+    category = create(:category, user: user)
+    product = create(:product, name: 'Limão', user: user, category: category)
+    create(:recipe_product, recipe: recipe, product: product, quantity: 3)
+
+    login_as(user)
+    visit user_backoffice_recipe_path(recipe.id)
+    click_on 'Alterar quantidade'
+    fill_in 'Quantidade', with: 4
+    click_on 'Salvar'
+
+    expect(page).to have_current_path(user_backoffice_recipe_path(recipe.id))
+    expect(page).to have_content('Quantidade alterada com sucesso')
+    expect(page).to have_content('4 x Limão')
+    expect(page).not_to have_content('3 x Limão')
+  end
 end

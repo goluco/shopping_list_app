@@ -1,0 +1,9 @@
+<h4>Editar quantidade do produto <%= @recipe_product.product.name %></h4>
+
+<%= form_with(model: [:user_backoffice, @recipe, @recipe_product] ) do |f| %>
+  <div>
+    <%= f.label :quantity, 'Quantidade' %>
+    <%= f.number_field :quantity %>
+  </div>
+  <%= f.submit 'Salvar' %>
+<% end %>
