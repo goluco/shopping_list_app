@@ -22,4 +22,14 @@
   
 <% end %>
 
+<h5>Receitas inclusas:</h5>
+
+<ol>
+  <% @list.recipes.each do |recipe| %>
+    <li><%= recipe.name %> | <%= recipe.people %> pessoas </li>
+  <% end %>
+</ol>
+
 <%= link_to 'Adicionar receita', new_user_backoffice_list_list_recipe_path(@list.id) %>
+
+<%= link_to 'Editar', edit_user_backoffice_list_path(@list.id) %>

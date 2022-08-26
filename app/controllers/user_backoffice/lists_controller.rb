@@ -19,16 +19,30 @@ class UserBackoffice::ListsController < UserBackofficeController
       render 'new'
     end
   end
-end
 
-def show; end
+  def edit; end
 
-private
+  def update
+    if @list.update(update_list_params)
+      redirect_to user_backoffice_lists_path, notice: 'Lista atualizada com sucesso'
+    else
+      flash.now[:alert] = 'Não foi possível atualizar. Verifique os erros abaixo'
+    end
+  end
 
-def set_list
-  @list = List.find(params[:id])
-end
+  def show; end
 
-def create_list_params
-  params.require(:list).permit(:name, :people).merge(user_id: @user.id)
+  private
+
+  def set_list
+    @list = List.find(params[:id])
+  end
+
+  def create_list_params
+    params.require(:list).permit(:name, :people).merge(user_id: @user.id)
+  end
+
+  def update_list_params
+    params.require(:list).permit(:name, :people)
+  end
 end
