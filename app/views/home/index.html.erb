@@ -4,4 +4,8 @@
 
 <% if user_signed_in? %>
   <p>Bem vindo, <%= current_user.name %></p>
+
+  <br />
+
+  <div><%= link_to 'Criar nova lista de compras', new_user_backoffice_list_path %></div>
 <% end %>

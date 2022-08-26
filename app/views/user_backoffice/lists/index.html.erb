@@ -1,0 +1,11 @@
+<h3>Listas</h3>
+
+<% if @lists.empty? %>
+  <p>Ainda não existem listas de compra cadastradas</p>
+<% else %>
+  <ul>
+    <% @lists.each do |list| %>
+      <li><%= link_to I18n.l(list.created_at), user_backoffice_list_path(list.id) %> | <%= list.people %> pessoas </li>
+    <% end %>
+  </ul>
+<% end %>

@@ -5,7 +5,10 @@ Rails.application.routes.draw do
     resources :categories, only: %i[index new create edit update]
     resources :products, only: %i[index new create edit update]
     resources :recipes, only: %i[index new create edit update show] do
-      resources :recipe_products, only: %i[new create]
+      resources :recipe_products, only: %i[new create destroy edit update]
+    end
+    resources :lists, only: %i[index new create edit update show] do
+      resources :list_recipes, only: %i[new create destroy]
     end
   end
 end

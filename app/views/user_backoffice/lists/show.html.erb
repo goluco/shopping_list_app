@@ -1,0 +1,39 @@
+<h4>Lista de compra</h4>
+
+<ul>
+  <li><% if @list.name == nil %>
+        Sem nome
+      <% else %>
+        <%= @list.name %>
+      <% end %>
+  </li>
+  <li><%= @list.people %> pessoas</li>
+</ul>
+
+<% Category.where(user: current_user).each do |category| %>
+  <h4><%= category.name %></h4>
+  <ul class=<%= category.name.gsub(' ', '') %>>
+    <% @list.final_list.each do |item| %>
+      <% if item[:category] == category %>
+        <li><%= item[:quantity] %> x <%= item[:name] %></li>
+      <% end %>
+    <% end %>
+  </ul>
+  
+<% end %>
+
+<% if @list.recipes.empty? %>
+  <p>Ainda não há receitas cadastradas para esta lista. Para adicionar, clique no botão abaixo.</p>
+<% else %>
+  <h5>Receitas inclusas:</h5>
+
+  <ol>
+    <% @list.list_recipes.each do |list_recipe| %>
+      <li><%= link_to list_recipe.recipe.name, edit_user_backoffice_recipe_path(list_recipe.recipe.id) %> | <%= list_recipe.recipe.people %> pessoas | <%= button_to 'Remover da lista',  user_backoffice_list_list_recipe_path(@list.id, list_recipe.id), method: :delete %> </li>
+    <% end %>
+  </ol>
+<% end %>
+
+<%= link_to 'Adicionar receita', new_user_backoffice_list_list_recipe_path(@list.id) %>
+
+<%= link_to 'Editar', edit_user_backoffice_list_path(@list.id) %>

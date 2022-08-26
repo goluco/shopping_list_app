@@ -1,0 +1,15 @@
+<%= form_with(model: [:user_backoffice, @list]) do |form| %>
+  <div>
+    <%= form.label :name %>
+    <%= form.text_field :name %>
+  </div>
+
+  <div>
+    <%= form.label :people %>
+    <%= form.number_field :people %>
+  </div>
+
+  <div>
+    <%= form.submit 'Salvar' %>
+  </div>
+<% end %>
