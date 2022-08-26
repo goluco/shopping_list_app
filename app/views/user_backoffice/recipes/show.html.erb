@@ -12,7 +12,7 @@
   <ul>
     <% @recipe.recipe_products.each do |recipe_product| %>
       <% if recipe_product.product.category == category %>
-        <li><%= recipe_product.quantity %> x <%= recipe_product.product.name %></li>
+        <li><%= recipe_product.quantity %> x <%= recipe_product.product.name %> | <%= button_to 'Retirar produto', user_backoffice_recipe_recipe_product_path(@recipe.id, recipe_product.id), method: :delete %></li>
       <% end %>
     <% end %>
   </ul>
