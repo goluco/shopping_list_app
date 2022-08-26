@@ -16,6 +16,7 @@ class UserBackoffice::ListRecipesController < UserBackofficeController
   end
 
   def destroy
+    puts @list_recipe.id
     @list.list_recipes.destroy(@list_recipe)
     @list_recipe.destroy
     redirect_to user_backoffice_list_path(@list.id), notice: 'Receita removida com sucesso'

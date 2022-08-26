@@ -28,8 +28,8 @@
   <h5>Receitas inclusas:</h5>
 
   <ol>
-    <% @list.recipes.each do |recipe| %>
-      <li><%= link_to recipe.name, edit_user_backoffice_recipe_path(recipe.id) %> | <%= recipe.people %> pessoas | <%= button_to 'Remover da lista',  user_backoffice_list_list_recipe_path(@list.id, recipe.id), method: :delete %> </li>
+    <% @list.list_recipes.each do |list_recipe| %>
+      <li><%= link_to list_recipe.recipe.name, edit_user_backoffice_recipe_path(list_recipe.recipe.id) %> | <%= list_recipe.recipe.people %> pessoas | <%= button_to 'Remover da lista',  user_backoffice_list_list_recipe_path(@list.id, list_recipe.id), method: :delete %> </li>
     <% end %>
   </ol>
 <% end %>
