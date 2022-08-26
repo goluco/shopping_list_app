@@ -8,7 +8,7 @@ Rails.application.routes.draw do
       resources :recipe_products, only: %i[new create destroy edit update]
     end
     resources :lists, only: %i[index new create edit update show] do
-      resources :list_recipes, only: %i[new create]
+      resources :list_recipes, only: %i[new create destroy]
     end
   end
 end

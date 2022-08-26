@@ -1,13 +1,13 @@
 <h4>Lista de compra</h4>
 
 <ul>
-  <li><% if @list.name != nil %>
+  <li><% if @list.name == nil %>
         Sem nome
       <% else %>
         <%= @list.name %>
       <% end %>
   </li>
-  <li><%= @list.people %></li>
+  <li><%= @list.people %> pessoas</li>
 </ul>
 
 <% Category.where(user: current_user).each do |category| %>
@@ -22,13 +22,17 @@
   
 <% end %>
 
-<h5>Receitas inclusas:</h5>
+<% if @list.recipes.empty? %>
+  <p>Ainda não há receitas cadastradas para esta lista. Para adicionar, clique no botão abaixo.</p>
+<% else %>
+  <h5>Receitas inclusas:</h5>
 
-<ol>
-  <% @list.recipes.each do |recipe| %>
-    <li><%= recipe.name %> | <%= recipe.people %> pessoas </li>
-  <% end %>
-</ol>
+  <ol>
+    <% @list.recipes.each do |recipe| %>
+      <li><%= link_to recipe.name, edit_user_backoffice_recipe_path(recipe.id) %> | <%= recipe.people %> pessoas | <%= button_to 'Remover da lista',  user_backoffice_list_list_recipe_path(@list.id, recipe.id), method: :delete %> </li>
+    <% end %>
+  </ol>
+<% end %>
 
 <%= link_to 'Adicionar receita', new_user_backoffice_list_list_recipe_path(@list.id) %>
 
