@@ -43,18 +43,18 @@ describe 'Usuário adiciona receitas à lista de compras' do
     expect(page).to have_css 'h4', text: category2.name
     expect(page).to have_css 'h4', text: category3.name
     within("ul.#{category.name.gsub(' ', '')}") do
-      expect(page).to have_content("1 x #{product.name}")
-      expect(page).to have_content("3 x #{product2.name}")
-      expect(page).to have_content("1 x #{product3.name}")
-      expect(page).to have_content("1 x #{product4.name}")
-      expect(page).to have_content("1 x #{product5.name}")
+      expect(page).to have_content("2 x #{product.name}")
+      expect(page).to have_content("6 x #{product2.name}")
+      expect(page).to have_content("2 x #{product3.name}")
+      expect(page).to have_content("2 x #{product4.name}")
+      expect(page).to have_content("2 x #{product5.name}")
     end
     within("ul.#{category2.name.gsub(' ', '')}") do
-      expect(page).to have_content("1 x #{product6.name}")
-      expect(page).to have_content("1 x #{product7.name}")
+      expect(page).to have_content("2 x #{product6.name}")
+      expect(page).to have_content("2 x #{product7.name}")
     end
     within("ul.#{category3.name.gsub(' ', '')}") do
-      expect(page).to have_content("1 x #{product8.name}")
+      expect(page).to have_content("2 x #{product8.name}")
     end
   end
 end
