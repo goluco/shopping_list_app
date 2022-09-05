@@ -11,4 +11,8 @@ Rails.application.routes.draw do
       resources :list_recipes, only: %i[new create destroy]
     end
   end
+  namespace :api do
+    namespace :v1 do
+    end
+  end
 end
