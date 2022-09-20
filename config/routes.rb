@@ -13,6 +13,9 @@ Rails.application.routes.draw do
   end
   namespace :api do
     namespace :v1 do
+      devise_for :users, controllers: {
+        sessions: 'users/registrations'
+      }
     end
   end
 end
