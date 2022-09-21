@@ -3,6 +3,7 @@ require 'rails_helper'
 describe 'Usuário visita aplicação' do
   it 'logado' do
     user = create(:user)
+    logout(:user)
 
     visit root_path
     click_on 'Fazer login'
