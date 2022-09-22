@@ -3,10 +3,9 @@ require 'rails_helper'
 describe 'Usuário cria nova categoria' do
   it 'com sucesso' do
     user = create(:user)
-    category_params = { category: { name: 'Legumes e Verduras' } }
+    params = { user_email: user.email, auth_token: user.authentication_token, category: { name: 'Legumes e Verduras' } }
 
-    login_as(user)
-    post '/api/v1/categories', params: category_params
+    post '/api/v1/categories', params: params
 
     expect(response).to have_http_status(:created)
     expect(response.content_type).to include 'application/json'
@@ -16,10 +15,9 @@ describe 'Usuário cria nova categoria' do
 
   it 'com informações incorretas' do
     user = create(:user)
-    category_params = { category: { name: '' } }
+    params = { user_email: user.email, auth_token: user.authentication_token, category: { name: '' } }
 
-    login_as(user)
-    post '/api/v1/categories', params: category_params
+    post '/api/v1/categories', params: params
 
     expect(response).to have_http_status(:precondition_failed)
     expect(response.content_type).to include 'application/json'

@@ -12,7 +12,6 @@ require 'devise'
 RSpec.configure do |config|
   config.include Devise::Test::ControllerHelpers, type: :controller
   config.include Devise::Test::ControllerHelpers, type: :view
-  config.include Devise::Test::IntegrationHelpers, type: :feature
 end
 
 SimpleCov.start do
@@ -89,3 +88,5 @@ RSpec.configure do |config|
     end
   end
 end
+
+
