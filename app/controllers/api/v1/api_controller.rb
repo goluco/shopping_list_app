@@ -1,8 +1,7 @@
-class ApplicationController < ActionController::Base
+class Api::V1::ApiController < ActionController::API
   respond_to :html, :json
-  protect_from_forgery with: :null_session
-  before_action :configure_permitted_parameters, if: :devise_controller?
   before_action :authentication_method
+  rescue_from ActiveRecord::ConnectionNotEstablished, with: :return_authentication_error
 
   private
 
@@ -12,10 +11,12 @@ class ApplicationController < ActionController::Base
 
     if user && Devise.secure_compare(user.authentication_token, params[:auth_token])
       sign_in user, store: false
+    else
+      raise ActiveRecord::ConnectionNotEstablished
     end
   end
 
-  def configure_permitted_parameters
-    devise_parameter_sanitizer.permit(:sign_up, keys: [:name])
+  def return_authentication_error
+    render status: :unauthorized, json: { error: 'Usuário não autenticado' }
   end
 end

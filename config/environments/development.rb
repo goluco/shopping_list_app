@@ -62,3 +62,6 @@ Rails.application.configure do
   # Uncomment if you wish to allow Action Cable access from any origin.
   # config.action_cable.disable_request_forgery_protection = true
 end
+
+Rails.application.config.middleware.insert_before Warden::Manager, ActionDispatch::Cookies
+Rails.application.config.middleware.insert_before Warden::Manager, ActionDispatch::Session::CookieStore
